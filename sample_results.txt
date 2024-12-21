@@ -1,0 +1,377 @@
+------------------------------
+###############################
+###############################
+#######  取り出したい出力  #######
+###############################
+###############################
+------------------------------
+
+
+#############
+### i = 0 ###
+#############
+
+...
+****Vision Agent****
+{'image_summary': 'The image shows a grassy landscape with trees in the background. A sheep is visible among the trees.'}
+tick: 164
+time: 1542
+day: 0
+id_to_node: 4
+chat vectordb counts: 0
+skill vectordb counts: 0
+events vectordb counts: 3
+environment vectordb counts: 1
+...
+
+****Long-term Planner****
+{'reasoning': 'There is no specific task or personality provided, so the focus is on the current state of the game. The observation indicates that the player has just started in a peaceful environment with no equipment or inventory items. The surroundings are grassy with a sheep nearby, suggesting a typical starting biome. The player is on the ground with full health and food, indicating a safe starting point. The image confirms the grassy terrain and presence of trees, which are useful for gathering initial resources.', 'long_term_plan': '1. Gather Basic Resources: Start by collecting wood from nearby trees to craft basic tools like a wooden pickaxe and axe. This will help in gathering more resources efficiently.\n2. Explore the Area: Look around for essential resources such as stone, coal, and food sources. The presence of sheep suggests wool can be collected for a bed.\n3. Establish a Base: Find a suitable location to set up a temporary shelter. Use collected resources to build a basic structure for safety during the night.\n4. Upgrade Tools: Once stone is collected, upgrade tools to stone variants for better efficiency.\n5. Expand and Secure: Continue gathering resources, expand the base, and secure it with lighting to prevent mob spawns.\n6. Set Goals: Decide on long-term goals such as exploring caves, farming, or building projects based on personal interests.'}
+...
+
+long_term_plan: 
+1. Gather Basic Resources: Start by collecting wood from nearby trees to craft basic tools like a wooden pickaxe and axe. This will help in gathering more resources efficiently.
+2. Explore the Area: Look around for essential resources such as stone, coal, and food sources. The presence of sheep suggests wool can be collected for a bed.
+3. Establish a Base: Find a suitable location to set up a temporary shelter. Use collected resources to build a basic structure for safety during the night.
+4. Upgrade Tools: Once stone is collected, upgrade tools to stone variants for better efficiency.
+5. Expand and Secure: Continue gathering resources, expand the base, and secure it with lighting to prevent mob spawns.
+6. Set Goals: Decide on long-term goals such as exploring caves, farming, or building projects based on personal interests.
+...
+
+****Short-term planner****
+{'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather basic resources, specifically wood, which is essential for crafting initial tools. The presence of trees nearby makes this task feasible.', 'short_term_plan': 'Mine 10 oak_log', 'critic_info': 'unfinished'}
+==========short-term plans==========
+0: {'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather basic resources, specifically wood, which is essential for crafting initial tools. The presence of trees nearby makes this task feasible.', 'short_term_plan': 'Mine 10 oak_log', 'critic_info': 'unfinished'}
+...
+
+==========action==========
+****Action Agent****
+{'Explain': 'The image shows a grassy area with trees and a sheep. The presence of trees indicates that oak logs can be mined. The task is to gather 10 oak logs, which aligns with the short-term plan.', 'Plan': '1) Locate oak trees in the vicinity. 2) Move towards the trees. 3) Mine 10 oak logs.', 'Code': "async function gatherOakLogs(bot) {\n  const oakLogName = 'oak_log';\n  const logsNeeded = 10;\n  const blocks = bot.findBlocks({\n    matching: (block) => block.name === oakLogName,\n    maxDistance: 48,\n    count: logsNeeded\n  });\n\n  if (blocks.length === 0) {\n    bot.chat('No oak logs found nearby.');\n    return;\n  }\n\n  bot.chat('Found oak logs, starting to mine.');\n  await mineBlock(bot, oakLogName, logsNeeded);\n  bot.chat('Finished mining oak logs.');\n}\n\nawait gatherOakLogs(bot);"}
+==========================
+
+
+#############
+### i = 1 ###
+#############
+
+...
+****Vision Agent****
+{'image_summary': 'The image shows a grassy area with a birch tree in a forest setting. The ground is covered with grass blocks, and there are other trees and foliage visible in the background.'}
+tick: 164
+time: 1542
+day: 0
+id_to_node: 3
+chat vectordb counts: 0
+skill vectordb counts: 0
+events vectordb counts: 2
+environment vectordb counts: 1
+...
+
+****Long-term Planner****
+{'reasoning': 'Since there is no specific task or personality provided, and the observation indicates that the player is starting with no equipment or inventory, the initial focus should be on basic survival and resource gathering. The environment appears to be a forest biome, which is rich in wood resources. The player is in peaceful mode, so there is no immediate threat from hostile mobs. The image shows a birch tree, which can be used for wood gathering.', 'long_term_plan': '1. Gather Wood: Start by punching trees to collect wood logs. This will be the primary resource for crafting tools and building a shelter.\n2. Craft Basic Tools: Use the wood to craft a crafting table, then create wooden tools such as a pickaxe, axe, and shovel.\n3. Build a Shelter: Use the gathered wood to construct a simple shelter to protect against the environment.\n4. Gather Stone: Use the wooden pickaxe to mine stone, which will allow for crafting stronger tools.\n5. Upgrade Tools: Craft stone tools to improve efficiency in gathering resources.\n6. Explore and Gather Resources: Continue exploring the surrounding area to gather more resources such as coal, iron, and food.\n7. Establish a Base: Once sufficient resources are gathered, establish a more permanent base with storage and crafting facilities.\n8. Expand and Explore: Continue to expand the base and explore further, preparing for future tasks or goals as they arise.'}
+...
+long_term_plan: 
+1. Gather Basic Resources: Start by collecting wood from nearby trees to craft basic tools like a wooden pickaxe and axe. This will help in gathering more resources efficiently.
+2. Explore the Area: Look around for essential resources such as stone, coal, and food sources. The presence of sheep suggests wool can be collected for a bed.
+3. Establish a Base: Find a suitable location to set up a temporary shelter. Use collected resources to build a basic structure for safety during the night.
+4. Upgrade Tools: Once stone is collected, upgrade tools to stone variants for better efficiency.
+5. Expand and Secure: Continue gathering resources, expand the base, and secure it with lighting to prevent mob spawns.
+6. Set Goals: Decide on long-term goals such as exploring caves, farming, or building projects based on personal interests.
+...
+
+****Short-term planner****
+{'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather wood, which is essential for crafting tools and building a shelter. There are birch trees nearby, making it convenient to start collecting wood.', 'short_term_plan': 'Mine 10 birch_log', 'critic_info': 'unfinished'}
+==========short-term plans==========
+0: {'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather wood, which is essential for crafting tools and building a shelter. There are birch trees nearby, making it convenient to start collecting wood.', 'short_term_plan': 'Mine 10 birch_log', 'critic_info': 'unfinished'}
+...
+
+==========action==========
+****Action Agent****
+{'Explain': 'The image shows a birch tree nearby, which aligns with the task of collecting birch logs. The bot has no tools or items in its inventory, so it will need to mine the logs by hand.', 'Plan': "1) Locate the birch tree using the bot's vision. 2) Move towards the birch tree. 3) Mine 10 birch logs from the tree.", 'Code': "async function gatherBirchLogs(bot) {\n  const birchLog = 'birch_log';\n  const logsNeeded = 10;\n  const birchTree = bot.findBlock({\n    matching: mcData.blocksByName[birchLog].id,\n    maxDistance: 48\n  });\n\n  if (!birchTree) {\n    bot.chat('No birch tree found nearby.');\n    return;\n  }\n\n  await bot.pathfinder.goto(new GoalGetToBlock(birchTree.position.x, birchTree.position.y, birchTree.position.z));\n  bot.chat('Found a birch tree, starting to mine logs.');\n\n  await mineBlock(bot, birchLog, logsNeeded);\n\n  const inventory = bot.inventory.items().filter(item => item.name === birchLog);\n  const totalLogs = inventory.reduce((sum, item) => sum + item.count, 0);\n\n  if (totalLogs >= logsNeeded) {\n    bot.chat('Successfully gathered 10 birch logs.');\n  } else {\n    bot.chat('Failed to gather enough birch logs.');\n  }\n}\n\nawait gatherBirchLogs(bot);"}
+==========================
+
+
+
+------------------------------
+##############################
+##############################
+#########  本来の出力  #########
+##############################
+##############################
+------------------------------
+
+[MineLand] MineLand Simulator is initializing...
+[MineLand] Starting server...
+[Server] Start to listen outputs.
+[Server] Starting net.fabricmc.loader.impl.game.minecraft.BundlerClassPathCapture
+[Server] [17:46:02] [main/INFO]: Loading Minecraft 1.19 with Fabric Loader 0.14.18
+[Server] [17:46:02] [main/INFO]: Loading 46 mods:
+[Server]        - better_respawn 1.19-2.0.0
+[Server]        - completeconfig 2.0.0
+[Server]           |-- coat 1.0.0-beta.17+mc22w17a
+[Server]           |-- completeconfig-base 2.0.0
+[Server]           |-- completeconfig-gui-cloth 2.0.0
+[Server]           \-- completeconfig-gui-coat 2.0.0
+[Server]        - fabric 0.58.0+1.19
+[Server]           |-- fabric-api-base 0.4.9+e62f51a3a9
+[Server]           |-- fabric-api-lookup-api-v1 1.6.7+9ff28f40a9
+[Server]           |-- fabric-biome-api-v1 9.0.14+b2a4a624a9
+[Server]           |-- fabric-blockrenderlayer-v1 1.1.18+9ff28f40a9
+[Server]           |-- fabric-command-api-v1 1.2.6+f71b366fa9
+[Server]           |-- fabric-command-api-v2 2.1.2+0d55f585a9
+[Server]           |-- fabric-commands-v0 0.2.23+df3654b3a9
+[Server]           |-- fabric-containers-v0 0.1.28+df3654b3a9
+[Server]           |-- fabric-content-registries-v0 3.2.1+07df213ea9
+[Server]           |-- fabric-convention-tags-v1 1.0.8+37622d24a9
+[Server]           |-- fabric-crash-report-info-v1 0.2.3+bd0a0d4aa9
+[Server]           |-- fabric-data-generation-api-v1 5.1.2+a680b9b4a9
+[Server]           |-- fabric-dimensions-v1 2.1.28+a6d2f785a9
+[Server]           |-- fabric-entity-events-v1 1.4.16+9ff28f40a9
+[Server]           |-- fabric-events-interaction-v0 0.4.26+9ff28f40a9
+[Server]           |-- fabric-events-lifecycle-v0 0.2.26+df3654b3a9
+[Server]           |-- fabric-game-rule-api-v1 1.0.19+18990361a9
+[Server]           |-- fabric-item-api-v1 1.5.5+35a03c43a9
+[Server]           |-- fabric-item-groups-v0 0.3.26+9ff28f40a9
+[Server]           |-- fabric-key-binding-api-v1 1.0.18+9ff28f40a9
+[Server]           |-- fabric-keybindings-v0 0.2.16+df3654b3a9
+[Server]           |-- fabric-lifecycle-events-v1 2.1.0+33fbc738a9
+[Server]           |-- fabric-loot-api-v2 1.1.1+03a4e568a9
+[Server]           |-- fabric-loot-tables-v1 1.1.4+9e7660c6a9
+[Server]           |-- fabric-message-api-v1 1.0.1+513f4a59a9
+[Server]           |-- fabric-mining-level-api-v1 2.1.11+33fbc738a9
+[Server]           |-- fabric-models-v0 0.3.15+9ff28f40a9
+[Server]           |-- fabric-networking-api-v1 1.1.0+442de8b8a9
+[Server]           |-- fabric-networking-v0 0.3.15+df3654b3a9
+[Server]           |-- fabric-object-builder-api-v1 4.0.8+9ff28f40a9
+[Server]           |-- fabric-particles-v1 1.0.8+dc39553aa9
+[Server]           |-- fabric-registry-sync-v0 0.9.18+23c4cfefa9
+[Server]           |-- fabric-renderer-api-v1 1.0.8+9ff28f40a9
+[Server]           |-- fabric-renderer-indigo 0.6.10+5187d39fa9
+[Server]           |-- fabric-renderer-registries-v1 3.2.18+df3654b3a9
+[Server]           |-- fabric-rendering-data-attachment-v1 0.3.12+9ff28f40a9
+[Server]           |-- fabric-rendering-fluids-v1 3.0.5+9ff28f40a9
+[Server]           |-- fabric-rendering-v0 1.1.20+df3654b3a9
+[Server]           |-- fabric-rendering-v1 1.10.14+9ff28f40a9
+[Server]           |-- fabric-resource-conditions-api-v1 2.0.9+e62f51a3a9
+[Server]           |-- fabric-resource-loader-v0 0.5.6+5f1a85e0a9
+[Server]           |-- fabric-screen-api-v1 1.0.24+f05effafa9
+[Server]           |-- fabric-screen-handler-api-v1 1.2.7+9ff28f40a9
+[Server]           |-- fabric-textures-v0 1.0.18+9ff28f40a9
+[Server]           |-- fabric-transfer-api-v1 2.0.9+e62f51a3a9
+[Server]           \-- fabric-transitive-access-wideners-v1 1.1.1+9e7660c6a9
+[Server]        - fabricloader 0.14.18
+[Server]        - java 17
+[Server]        - minecraft 1.19
+[Server]        - multiworld 1.5
+[Server]           \-- fantasy 0.4.5+1.19
+[Server]        - serverpause 1.1.0
+[Server]        - testmod 1.0
+[Server] [17:46:02] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=file:/home/tsy/Documents/World_Model/MineLand/mineland/sim/server/libraries/net/fabricmc/sponge-mixin/0.12.4+mixin.0.8.5/sponge-mixin-0.12.4+mixin.0.8.5.jar Service=Knot/Fabric Env=SERVER
+[Server] [17:46:02] [main/INFO]: Compatibility level set to JAVA_17
+[Server] [17:46:02] [main/WARN]: Reference map 'runtick-refmap.json' for tutorial_mod1.mixins.json could not be read. If this is a development environment you can ignore this message
+[Server] [17:46:05] [main/INFO]: Building unoptimized datafixer
+[Server] [17:46:05] [main/INFO]: [STDOUT]:  Multiworld init
+[Server] [17:46:06] [main/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[Server] [17:46:06] [main/INFO]: Loaded 7 recipes
+[Server] [17:46:07] [main/INFO]: Loaded 1179 advancements
+[Server] [17:46:07] [main/INFO]: Applied 0 biome modifications to 0 of 63 new biomes in 995.5 μs
+[Server] [17:46:07] [Server thread/INFO]: Starting minecraft server version 1.19
+[Server] [17:46:07] [Server thread/INFO]: Loading properties
+[Server] [17:46:07] [Server thread/INFO]: Default game type: SURVIVAL
+[Server] [17:46:07] [Server thread/INFO]: Generating keypair
+[Server] [17:46:07] [Server thread/INFO]: Starting Minecraft server on *:25565
+[Server] [17:46:07] [Server thread/INFO]: Using epoll channel type
+[Server] [17:46:07] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[Server] [17:46:07] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[Server] [17:46:07] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[Server] [17:46:07] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[Server] [17:46:07] [Server thread/INFO]: Preparing level "world"
+[Server] [17:46:07] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[Server] [17:46:08] [Worker-Main-26/INFO]: Preparing spawn area: 0%
+[Server] [17:46:08] [Worker-Main-14/INFO]: Preparing spawn area: 0%
+[Server] [17:46:08] [Worker-Main-5/INFO]: Preparing spawn area: 0%
+[Server] [17:46:09] [Worker-Main-12/INFO]: Preparing spawn area: 19%
+[Server] [17:46:09] [Server thread/INFO]: Time elapsed: 1796 ms
+[Server] [17:46:09] [Server thread/INFO]: Done (1.888s)! For help, type "help"
+[MineLand] Server started.
+[MineLand] Pause is disabled!
+[MineLand] Mineflayer is starting.
+[Mineflayer] Start to listen stdout.
+[Mineflayer] JS side listener started on port 21301
+[MineLand] Mineflayer started.
+[MineLand] MineLand Simulator is initialized.
+[MineLand] Starting reset... This may take a few seconds.
+[Mineflayer] 0 : MineflayerBot0
+[Mineflayer] 1 : MineflayerBot1
+[Server] [17:46:13] [Server thread/INFO]: MineflayerBot0[/127.0.0.1:44680] logged in with entity id 4 at (-62.31270977393111, 76.0, -406.48908954898525)
+[Server] [17:46:13] [Server thread/INFO]: MineflayerBot0 joined the game
+[Mineflayer] RGB Mode: (256, 144)
+[Server] [17:46:14] [Server thread/INFO]: MineflayerBot1[/127.0.0.1:44696] logged in with entity id 29 at (59.5, 63.0, -131.5)
+[Server] [17:46:14] [Server thread/INFO]: MineflayerBot1 joined the game
+[Mineflayer] viewer created on bot MineflayerBot0
+[Mineflayer] viewer created on bot MineflayerBot1
+[Mineflayer] Get Observation: 0
+[Mineflayer] Get Observation: 1
+[MineLand] Reset finished. MineLand Simulator is started.
+[MineLand] You didn't enable AUTO PAUSE mode, the minecraft game is running now.
+==========self check==========
+next step after self check: critic
+description: Ready
+==============================
+
+==========critic==========
+next step after critic: brain
+critic info: need short-term plan
+==========================
+
+==========brain==========
+****Vision Agent****
+{'image_summary': 'The image shows a grassy landscape with trees in the background. A sheep is visible among the trees.'}
+tick: 164
+time: 1542
+day: 0
+id_to_node: 4
+chat vectordb counts: 0
+skill vectordb counts: 0
+events vectordb counts: 3
+environment vectordb counts: 1
+****Long-term Planner****
+{'reasoning': 'There is no specific task or personality provided, so the focus is on the current state of the game. The observation indicates that the player has just started in a peaceful environment with no equipment or inventory items. The surroundings are grassy with a sheep nearby, suggesting a typical starting biome. The player is on the ground with full health and food, indicating a safe starting point. The image confirms the grassy terrain and presence of trees, which are useful for gathering initial resources.', 'long_term_plan': '1. Gather Basic Resources: Start by collecting wood from nearby trees to craft basic tools like a wooden pickaxe and axe. This will help in gathering more resources efficiently.\n2. Explore the Area: Look around for essential resources such as stone, coal, and food sources. The presence of sheep suggests wool can be collected for a bed.\n3. Establish a Base: Find a suitable location to set up a temporary shelter. Use collected resources to build a basic structure for safety during the night.\n4. Upgrade Tools: Once stone is collected, upgrade tools to stone variants for better efficiency.\n5. Expand and Secure: Continue gathering resources, expand the base, and secure it with lighting to prevent mob spawns.\n6. Set Goals: Decide on long-term goals such as exploring caves, farming, or building projects based on personal interests.'}
+query: MineflayerBot0 joined
+Memory Library retrieving for 1 environment
+Memory Library retrieved environment: node_4
+Memory Library retrieving for 2 events
+Memory Library retrieved events: node_1, node_3
+query: Sheep has spawned
+Memory Library retrieving for 1 environment
+Memory Library retrieved environment: node_4
+Memory Library retrieving for 2 events
+Memory Library retrieved events: node_2, node_3
+query: MineflayerBot1 joined
+Memory Library retrieving for 1 environment
+Memory Library retrieved environment: node_4
+Memory Library retrieving for 2 events
+Memory Library retrieved events: node_3, node_1
+----------------retrieved info ----------------------
+long_term_plan: 1. Gather Basic Resources: Start by collecting wood from nearby trees to craft basic tools like a wooden pickaxe and axe. This will help in gathering more resources efficiently.
+2. Explore the Area: Look around for essential resources such as stone, coal, and food sources. The presence of sheep suggests wool can be collected for a bed.
+3. Establish a Base: Find a suitable location to set up a temporary shelter. Use collected resources to build a basic structure for safety during the night.
+4. Upgrade Tools: Once stone is collected, upgrade tools to stone variants for better efficiency.
+5. Expand and Secure: Continue gathering resources, expand the base, and secure it with lighting to prevent mob spawns.
+6. Set Goals: Decide on long-term goals such as exploring caves, farming, or building projects based on personal interests.
+last 0 short_term_plan:
+recent_chat: 
+retrieved: MineflayerBot0 joined
+ctx_type: chat
+ctx_type: environment
+node_id: node_4, node_count: 4, node_type: environment, description: Day 0, Time 1542: I am at [-62.31, 76, -406.49]I can see: The image shows a grassy landscape with trees in the background. A sheep is visible among the trees.
+ctx_type: event
+node_id: node_3, node_count: 3, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot1 joined
+node_id: node_1, node_count: 1, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot0 joined
+retrieved: Sheep has spawned
+ctx_type: chat
+ctx_type: environment
+node_id: node_4, node_count: 4, node_type: environment, description: Day 0, Time 1542: I am at [-62.31, 76, -406.49]I can see: The image shows a grassy landscape with trees in the background. A sheep is visible among the trees.
+ctx_type: event
+node_id: node_3, node_count: 3, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot1 joined
+node_id: node_2, node_count: 2, node_type: event, description: Day : 0, Time :1542, event type: entitySpawn, event message: Sheep has spawned
+retrieved: MineflayerBot1 joined
+ctx_type: chat
+ctx_type: environment
+node_id: node_4, node_count: 4, node_type: environment, description: Day 0, Time 1542: I am at [-62.31, 76, -406.49]I can see: The image shows a grassy landscape with trees in the background. A sheep is visible among the trees.
+ctx_type: event
+node_id: node_3, node_count: 3, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot1 joined
+node_id: node_1, node_count: 1, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot0 joined
+-----------------------------------------------------
+
+****Short-term planner****
+{'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather basic resources, specifically wood, which is essential for crafting initial tools. The presence of trees nearby makes this task feasible.', 'short_term_plan': 'Mine 10 oak_log', 'critic_info': 'unfinished'}
+==========short-term plans==========
+0: {'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather basic resources, specifically wood, which is essential for crafting initial tools. The presence of trees nearby makes this task feasible.', 'short_term_plan': 'Mine 10 oak_log', 'critic_info': 'unfinished'}
+====================================
+next step after brain: action
+description: execute the plan
+========================
+
+==========action==========
+****Action Agent****
+{'Explain': 'The image shows a grassy area with trees and a sheep. The presence of trees indicates that oak logs can be mined. The task is to gather 10 oak logs, which aligns with the short-term plan.', 'Plan': '1) Locate oak trees in the vicinity. 2) Move towards the trees. 3) Mine 10 oak logs.', 'Code': "async function gatherOakLogs(bot) {\n  const oakLogName = 'oak_log';\n  const logsNeeded = 10;\n  const blocks = bot.findBlocks({\n    matching: (block) => block.name === oakLogName,\n    maxDistance: 48,\n    count: logsNeeded\n  });\n\n  if (blocks.length === 0) {\n    bot.chat('No oak logs found nearby.');\n    return;\n  }\n\n  bot.chat('Found oak logs, starting to mine.');\n  await mineBlock(bot, oakLogName, logsNeeded);\n  bot.chat('Finished mining oak logs.');\n}\n\nawait gatherOakLogs(bot);"}
+==========================
+
+==========self check==========
+next step after self check: critic
+description: Ready
+==============================
+
+==========critic==========
+next step after critic: brain
+critic info: need short-term plan
+==========================
+
+==========brain==========
+****Vision Agent****
+{'image_summary': 'The image shows a grassy area with a birch tree in a forest setting. The ground is covered with grass blocks, and there are other trees and foliage visible in the background.'}
+tick: 164
+time: 1542
+day: 0
+id_to_node: 3
+chat vectordb counts: 0
+skill vectordb counts: 0
+events vectordb counts: 2
+environment vectordb counts: 1
+****Long-term Planner****
+{'reasoning': 'Since there is no specific task or personality provided, and the observation indicates that the player is starting with no equipment or inventory, the initial focus should be on basic survival and resource gathering. The environment appears to be a forest biome, which is rich in wood resources. The player is in peaceful mode, so there is no immediate threat from hostile mobs. The image shows a birch tree, which can be used for wood gathering.', 'long_term_plan': '1. Gather Wood: Start by punching trees to collect wood logs. This will be the primary resource for crafting tools and building a shelter.\n2. Craft Basic Tools: Use the wood to craft a crafting table, then create wooden tools such as a pickaxe, axe, and shovel.\n3. Build a Shelter: Use the gathered wood to construct a simple shelter to protect against the environment.\n4. Gather Stone: Use the wooden pickaxe to mine stone, which will allow for crafting stronger tools.\n5. Upgrade Tools: Craft stone tools to improve efficiency in gathering resources.\n6. Explore and Gather Resources: Continue exploring the surrounding area to gather more resources such as coal, iron, and food.\n7. Establish a Base: Once sufficient resources are gathered, establish a more permanent base with storage and crafting facilities.\n8. Expand and Explore: Continue to expand the base and explore further, preparing for future tasks or goals as they arise.'}
+query: MineflayerBot1 joined
+Memory Library retrieving for 1 environment
+Memory Library retrieved environment: node_3
+Memory Library retrieving for 2 events
+Memory Library retrieved events: node_1, node_2
+query: MineflayerBot0 joined
+Memory Library retrieving for 1 environment
+Memory Library retrieved environment: node_3
+Memory Library retrieving for 2 events
+Memory Library retrieved events: node_2, node_1
+----------------retrieved info ----------------------
+long_term_plan: 1. Gather Wood: Start by punching trees to collect wood logs. This will be the primary resource for crafting tools and building a shelter.
+2. Craft Basic Tools: Use the wood to craft a crafting table, then create wooden tools such as a pickaxe, axe, and shovel.
+3. Build a Shelter: Use the gathered wood to construct a simple shelter to protect against the environment.
+4. Gather Stone: Use the wooden pickaxe to mine stone, which will allow for crafting stronger tools.
+5. Upgrade Tools: Craft stone tools to improve efficiency in gathering resources.
+6. Explore and Gather Resources: Continue exploring the surrounding area to gather more resources such as coal, iron, and food.
+7. Establish a Base: Once sufficient resources are gathered, establish a more permanent base with storage and crafting facilities.
+8. Expand and Explore: Continue to expand the base and explore further, preparing for future tasks or goals as they arise.
+last 0 short_term_plan:
+recent_chat: 
+retrieved: MineflayerBot1 joined
+ctx_type: chat
+ctx_type: environment
+node_id: node_3, node_count: 3, node_type: environment, description: Day 0, Time 1542: I am at [59.5, 63, -131.5]I can see: The image shows a grassy area with a birch tree in a forest setting. The ground is covered with grass blocks, and there are other trees and foliage visible in the background.
+ctx_type: event
+node_id: node_2, node_count: 2, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot0 joined
+node_id: node_1, node_count: 1, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot1 joined
+retrieved: MineflayerBot0 joined
+ctx_type: chat
+ctx_type: environment
+node_id: node_3, node_count: 3, node_type: environment, description: Day 0, Time 1542: I am at [59.5, 63, -131.5]I can see: The image shows a grassy area with a birch tree in a forest setting. The ground is covered with grass blocks, and there are other trees and foliage visible in the background.
+ctx_type: event
+node_id: node_1, node_count: 1, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot1 joined
+node_id: node_2, node_count: 2, node_type: event, description: Day : 0, Time :1542, event type: playerJoined, event message: MineflayerBot0 joined
+-----------------------------------------------------
+
+****Short-term planner****
+{'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather wood, which is essential for crafting tools and building a shelter. There are birch trees nearby, making it convenient to start collecting wood.', 'short_term_plan': 'Mine 10 birch_log', 'critic_info': 'unfinished'}
+==========short-term plans==========
+0: {'reasoning': 'The current situation involves starting fresh in a new world. The first step in the long-term plan is to gather wood, which is essential for crafting tools and building a shelter. There are birch trees nearby, making it convenient to start collecting wood.', 'short_term_plan': 'Mine 10 birch_log', 'critic_info': 'unfinished'}
+====================================
+next step after brain: action
+description: execute the plan
+========================
+
+==========action==========
+****Action Agent****
+{'Explain': 'The image shows a birch tree nearby, which aligns with the task of collecting birch logs. The bot has no tools or items in its inventory, so it will need to mine the logs by hand.', 'Plan': "1) Locate the birch tree using the bot's vision. 2) Move towards the birch tree. 3) Mine 10 birch logs from the tree.", 'Code': "async function gatherBirchLogs(bot) {\n  const birchLog = 'birch_log';\n  const logsNeeded = 10;\n  const birchTree = bot.findBlock({\n    matching: mcData.blocksByName[birchLog].id,\n    maxDistance: 48\n  });\n\n  if (!birchTree) {\n    bot.chat('No birch tree found nearby.');\n    return;\n  }\n\n  await bot.pathfinder.goto(new GoalGetToBlock(birchTree.position.x, birchTree.position.y, birchTree.position.z));\n  bot.chat('Found a birch tree, starting to mine logs.');\n\n  await mineBlock(bot, birchLog, logsNeeded);\n\n  const inventory = bot.inventory.items().filter(item => item.name === birchLog);\n  const totalLogs = inventory.reduce((sum, item) => sum + item.count, 0);\n\n  if (totalLogs >= logsNeeded) {\n    bot.chat('Successfully gathered 10 birch logs.');\n  } else {\n    bot.chat('Failed to gather enough birch logs.');\n  }\n}\n\nawait gatherBirchLogs(bot);"}
+==========================
+
+[Server] [17:47:11] [Server thread/INFO]: <MineflayerBot0> Found oak logs, starting to mine.
+[Server] [17:47:11] [Server thread/INFO]: <MineflayerBot0> Try to mine 10 oak_log nearby
+[Server] [17:47:12] [Server thread/INFO]: <MineflayerBot1> Found a birch tree, starting to mine logs.
+[Server] [17:47:12] [Server thread/INFO]: <MineflayerBot1> Try to mine 10 birch_log nearby
